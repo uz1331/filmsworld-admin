@@ -60,7 +60,7 @@ const SeriesDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`http://www.omdbapi.com/?apikey=503e00e3&i=${imdbID}`)
+    fetch(`https://www.omdbapi.com/?apikey=503e00e3&i=${imdbID}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.Response === "True") {
