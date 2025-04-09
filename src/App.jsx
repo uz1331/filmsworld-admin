@@ -10,6 +10,9 @@ import SeriesList from "./components/Series/SeriesList";
 import SeriesDetails from "./components/Series/SeriesDetail"; // Import SeriesDetails
 import SeasonPage from "./components/Series/SeasonPage";
 import EpisodePage from "./components/Series/EpisodePage";
+import Users from "./components/users";  // Import your Users Page
+import TrendingMovies from "./components/TrendingMovies"; 
+import TrendingSeries from "./components/TrendingSeries";
 
 function App() {
   return (
@@ -19,6 +22,10 @@ function App() {
         <Route path="/card-form" element={<CardForm />} />
         <Route path="/movies" element={<MoviesList />} />
         <Route path="/movie/:imdbID" element={<MovieDetail />} />{" "}
+        <Route path="/users" element={<Users />} />
+        <Route path="/trending-movies" element={<TrendingMovies />} />
+        <Route path="/trending-series" element={<TrendingSeries />} />
+
         {/* Admin Page */}
         <Route path="/watch/:imdbID" element={<WatchMovie />} />{" "}
         {/* User Page */}
@@ -35,6 +42,7 @@ function App() {
           element={<EpisodePage />}
         />
       </Routes>
+      
     </Router>
   );
 }

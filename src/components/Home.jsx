@@ -9,6 +9,8 @@ const Home = () => {
   const [showBannerPopup, setShowBannerPopup] = useState(false);
   const [bannerImage, setBannerImage] = useState(null);
   const navigate = useNavigate();
+  const [showTrendingPopup, setShowTrendingPopup] = useState(false);
+
 
   useEffect(() => {
     fetch("https://appsdemo.pro/FilmsWorld-backend/api/user/getAllMovies")
@@ -102,7 +104,7 @@ const Home = () => {
       })
       .catch((error) => console.error("Error deleting series:", error));
   };
-  
+
 
 
   return (
@@ -117,6 +119,8 @@ const Home = () => {
             <button onClick={() => navigate("/card-form")}>Add Movies</button>
             <button onClick={() => navigate("/SeriesForm")}>Add Series</button>
             <button onClick={() => setShowBannerPopup(true)}>Add Banner</button>
+            <button onClick={() => navigate("/users")}>Users</button>
+            <button onClick={() => setShowTrendingPopup(true)}>Trending</button>
           </div>
 
           <div className="search-bar">
@@ -160,6 +164,21 @@ const Home = () => {
         ))}
       </section>
 
+      {/* Trending Popup */}
+      {showTrendingPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>Trending Options</h2>
+            <div className="trending-popup-buttons">
+            <button onClick={() => navigate("/trending-movies")}>Trending Movies</button>
+            <button onClick={() => navigate("/trending-series")}>Trending Series</button>
+            </div>
+            <div className="category-buttons">
+            <button onClick={() => setShowTrendingPopup(false)}>Close</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Banner Upload Popup */}
       {showBannerPopup && (
